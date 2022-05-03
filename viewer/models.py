@@ -5,6 +5,9 @@ from django.db.models import Model, CharField, ForeignKey, DO_NOTHING, IntegerFi
 class Genre(Model):
     name = CharField(max_length=128)
 
+    def __str__(self):
+        return self.name
+
 
 class Movie(Model):
     title = CharField(max_length=128)
