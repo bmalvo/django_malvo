@@ -18,6 +18,7 @@ from django.urls import path
 
 from viewer.views import MoviesView, MovieCreateView, MovieUpdateView, MovieDeleteView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MoviesView.as_view(), name='index'),

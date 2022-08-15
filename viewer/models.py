@@ -1,5 +1,6 @@
 from django.db import models
-from django.db.models import Model, CharField, ForeignKey, DO_NOTHING, IntegerField, DateField, TextField, DateTimeField
+from django.db.models import Model, CharField, ForeignKey, DO_NOTHING, IntegerField, DateField, \
+    TextField, DateTimeField
 
 
 class Genre(Model):
@@ -14,5 +15,8 @@ class Movie(Model):
     genre = ForeignKey(Genre, on_delete=DO_NOTHING)
     rating = IntegerField()
     released = DateField()
-    description = TextField()
+    description = TextField(null=True)
     created = DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
