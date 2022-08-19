@@ -13,6 +13,10 @@ from viewer.models import Movie
 LOGGER = getLogger()
 
 
+class SubmittableLoginView(LoginView):
+    template_name = 'form.html'
+
+
 class MoviesView(LoginRequiredMixin, ListView):
     template_name = 'movies.html'
     model = Movie

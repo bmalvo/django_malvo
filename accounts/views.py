@@ -9,6 +9,12 @@ from accounts.forms import (
 )
 
 
+class SignUpView(CreateView):
+    template_name = 'form.html'
+    form_class = SignUpForm
+    success_url = reverse_lazy('index')
+
+
 class SubmittableLoginView(LoginView):
     template_name = 'form.html'
 

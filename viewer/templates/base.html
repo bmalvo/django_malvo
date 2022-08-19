@@ -62,6 +62,10 @@
     {% endif %}
   </div>
 </div>
+  <div class="dropdown-menu dropdown-menu-right">
+  <a class="dropdown-item text-right" href="{% url 'accounts:login' %}">Login</a>
+  <a class="dropdown-item text-right" href="{% url 'accounts:sign_up' %}">Sign up</a>
+</div>
   </body>
 
 </html>

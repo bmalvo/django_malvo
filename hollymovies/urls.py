@@ -15,18 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import path
+from django.urls import path, include
 
 from viewer.views import MoviesView, MovieCreateView, MovieUpdateView, MovieDeleteView
-from accounts.views import SubmittableLoginView
+from viewer.views import SubmittableLoginView
 
 
 urlpatterns = [
-    path('accounts/login', SubmittableLoginView.as_view(), name='login'),
+    # path('accounts/login', SubmittableLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('admin/', admin.site.urls),
     path('', MoviesView.as_view(), name='index'),
     path('movie/create', MovieCreateView.as_view(), name='movie_create'),
     path('movie/update/<pk>', MovieUpdateView.as_view(), name='movie_update'),
-    path('movie/delete/<pk>', MovieDeleteView.as_view(), name='movie_delete')
+    path('movie/delete/<pk>', MovieDeleteView.as_view(), name='movie_delete'),
+    path('accounts/', include('accounts.urls', namespace='accounts'))
 ]
